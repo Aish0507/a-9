@@ -1,0 +1,33 @@
+<!-- ========== Left Sidebar Start ========== -->
+
+<ng-template #contentTemplate>
+  <!--- Sidemenu -->
+  <div id="sidebar-menu">
+    <!-- Left Menu Start -->
+    <ul class="metismenu list-unstyled" id="side-menu" #sideMenu>
+      <li class="menu-title">Menu</li>
+
+      <li>
+        <a routerLink="/dashboard" routerLinkActive="active" class="side-nav-link-ref">
+          <i class="bx bx-home-circle"></i><span class="badge badge-pill badge-info float-right">3</span>
+          <span>Dashboard</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</ng-template>
+<!-- Sidebar -->
+
+
+<div class="vertical-menu">
+  <div data-simplebar class="h-100">
+    <div *ngIf="!isCondensed">
+      <ng-container *ngTemplateOutlet="contentTemplate"></ng-container>
+    </div>
+
+    <div *ngIf="isCondensed">
+      <ng-container *ngTemplateOutlet="contentTemplate"></ng-container>
+    </div>
+  </div>
+</div>
+<!-- Left Sidebar End -->
