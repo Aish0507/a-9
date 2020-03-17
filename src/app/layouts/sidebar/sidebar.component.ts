@@ -1,4 +1,6 @@
-import { Component, OnInit, AfterViewInit, ElementRef, ViewChild, Input, OnChanges } from '@angular/core';
+import { Component, OnInit, AfterViewInit,
+         ElementRef, ViewChild, Input,
+         OnChanges } from '@angular/core';
 import MetisMenu from 'metismenujs/dist/metismenujs';
 import { EventService } from '../../core/services/event.service';
 import { Router, NavigationEnd } from '@angular/router';
@@ -16,9 +18,7 @@ export class SidebarComponent implements OnInit, AfterViewInit, OnChanges {
 
   @Input() isCondensed = false;
   menu: any;
-
   @ViewChild('sideMenu') sideMenu: ElementRef;
-
   constructor(private eventService: EventService, private router: Router) {
     router.events.forEach((event) => {
       if (event instanceof NavigationEnd) {
@@ -28,18 +28,10 @@ export class SidebarComponent implements OnInit, AfterViewInit, OnChanges {
   }
 
   ngOnInit() {
-    document.body.setAttribute('data-sidebar', 'dark');
-  }
-  /**
-   * Change the layout onclick
-   * @param layout Change the layout
-   */
-  changeLayout(layout: string) {
-    this.eventService.broadcast('changeLayout', layout);
+    this.lightSidebar();
   }
   ngAfterViewInit() {
     this.menu = new MetisMenu(this.sideMenu.nativeElement);
-
     this._activateMenuDropdown();
   }
 
@@ -79,7 +71,6 @@ export class SidebarComponent implements OnInit, AfterViewInit, OnChanges {
         break;
       }
     }
-
     if (menuItemEl) {
       menuItemEl.classList.add('active');
 
@@ -118,53 +109,5 @@ export class SidebarComponent implements OnInit, AfterViewInit, OnChanges {
     document.body.removeAttribute('data-layout-size');
     document.body.removeAttribute('data-keep-enlarged');
     document.body.classList.remove('vertical-collpsed');
-  }
-
-  /**
-   * Compact sidebar
-   */
-  compactSidebar() {
-    document.body.setAttribute('data-sidebar-size', 'small');
-    document.body.setAttribute('data-sidebar', 'dark');
-    document.body.removeAttribute('data-topbar');
-    document.body.removeAttribute('data-layout-size');
-    document.body.removeAttribute('data-keep-enlarged');
-    document.body.classList.remove('sidebar-enable');
-    document.body.classList.remove('vertical-collpsed');
-  }
-
-  /**
-   * Icon sidebar
-   */
-  iconSidebar() {
-    document.body.classList.add('sidebar-enable');
-    document.body.classList.add('vertical-collpsed');
-    document.body.setAttribute('data-sidebar', 'dark');
-    document.body.removeAttribute('data-layout-size');
-    document.body.removeAttribute('data-keep-enlarged');
-    document.body.removeAttribute('data-topbar');
-  }
-
-  /**
-   * Boxed layout
-   */
-  boxedLayout() {
-    document.body.setAttribute('data-keep-enlarged', 'true');
-    document.body.setAttribute('data-layout-size', 'boxed');
-    document.body.setAttribute('data-sidebar', 'dark');
-    document.body.classList.add('vertical-collpsed');
-    document.body.classList.remove('sidebar-enable');
-    document.body.removeAttribute('data-topbar');
-  }
-
-  /**
-   * Colored sidebar
-   */
-  coloredSidebar() {
-    document.body.setAttribute('data-sidebar', 'colored');
-    document.body.removeAttribute('data-sidebar-size');
-    document.body.removeAttribute('data-layout-size');
-    document.body.classList.remove('vertical-collpsed');
-    document.body.removeAttribute('data-topbar');
   }
 }
