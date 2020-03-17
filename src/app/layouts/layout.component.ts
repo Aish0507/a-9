@@ -37,11 +37,4 @@ export class LayoutComponent implements OnInit, AfterViewInit {
   isVerticalLayoutRequested() {
     return this.layoutType === LAYOUT_VERTICAL;
   }
-
-  /**
-   * Check if the horizontal layout is requested
-   */
-  isHorizontalLayoutRequested() {
-    return this.layoutType === LAYOUT_HORIZONTAL;
-  }
 }

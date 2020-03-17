@@ -1,4 +1,4 @@
-# Skote -  Angular 9 Responsive Admin Dashboard Template 
+# Ca-New
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.0.
 

@@ -1,22 +1,9 @@
-class FirebaseAuthBackend {
-    constructor(firebaseConfig) {
-        if (firebaseConfig) {
-            // Initialize Firebase
-            // firebase.initializeApp(firebaseConfig);
-            // firebase.auth().onAuthStateChanged((user) => {
-            //     if (user) {
-            //         sessionStorage.setItem('authUser', JSON.stringify(user));
-            //     } else {
-            //         sessionStorage.removeItem('authUser');
-            //     }
-            // });
-        }
-    }
-
+class CaNewAuthBackend {
+    constructor() {}
     /**
      * Registers the user with given details
      */
-    registerUser = (email, password) => {
+    registerUser = (email: any, password: any) => {
         return new Promise((resolve, reject) => {
             resolve({
                 id: 12,
@@ -33,7 +20,7 @@ class FirebaseAuthBackend {
     /**
      * Login user with given details
      */
-    loginUser = (email, password) => {
+    loginUser = (email: any, password: any) => {
         return new Promise((resolve, reject) => {
             resolve({
                 id: 12,
@@ -50,9 +37,8 @@ class FirebaseAuthBackend {
     /**
      * forget Password user with given details
      */
-    forgetPassword = (email) => {
+    forgetPassword = (email: any) => {
         return new Promise((resolve, reject) => {
-            // tslint:disable-next-line: max-line-length
             resolve({
                 id: 12,
                 username: 'string',
@@ -100,24 +86,13 @@ class FirebaseAuthBackend {
 }
 
 // tslint:disable-next-line: variable-name
-let _fireBaseBackend = null;
-
-/**
- * Initilize the backend
- * @param {*} config
- */
-const initFirebaseBackend = (config) => {
-    if (!_fireBaseBackend) {
-        _fireBaseBackend = new FirebaseAuthBackend(config);
-    }
-    return _fireBaseBackend;
-};
+const _caNewBackend = null;
 
 /**
  * Returns the firebase backend
  */
 const getCaNewBackend = () => {
-    return _fireBaseBackend;
+    return _caNewBackend;
 };
 
-export { initFirebaseBackend, getCaNewBackend };
+export { getCaNewBackend };
