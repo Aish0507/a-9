@@ -17,6 +17,9 @@ import { Router, NavigationEnd } from '@angular/router';
 export class SidebarComponent implements OnInit, AfterViewInit, OnChanges {
 
   @Input() isCondensed = false;
+  @Input() menuItems: any;
+  @Input() menuParentId: any;
+  parentMenu: Array<any>;
   menu: any;
   @ViewChild('sideMenu') sideMenu: ElementRef;
   constructor(private eventService: EventService, private router: Router) {
@@ -29,6 +32,13 @@ export class SidebarComponent implements OnInit, AfterViewInit, OnChanges {
 
   ngOnInit() {
     this.lightSidebar();
+    this.parentMenu = this.menuItems.filter((item: any) => {
+      if (item.parentId === this.menuParentId) {
+          console.log(item.parentId);
+          return item;
+      }
+    });
+    console.log(this.parentMenu);
   }
   ngAfterViewInit() {
     this.menu = new MetisMenu(this.sideMenu.nativeElement);
