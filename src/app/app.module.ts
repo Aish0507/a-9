@@ -9,6 +9,8 @@ import { environment } from '../environments/environment';
 import { LayoutsModule } from './layouts/layouts.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { LoggerService } from './core/services/log4ts/logger.service';
+import { ConsoleLoggerService } from './core/services/log4ts/console-logger.service';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,7 @@ import { AppComponent } from './app.component';
     LayoutsModule,
     AppRoutingModule,
   ],
+  providers: [ { provide: LoggerService, useClass: ConsoleLoggerService } ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

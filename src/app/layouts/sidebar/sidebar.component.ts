@@ -2,9 +2,10 @@ import { Component, OnInit, AfterViewInit,
          ElementRef, ViewChild, Input,
          OnChanges } from '@angular/core';
 import MetisMenu from 'metismenujs/dist/metismenujs';
-import { EventService } from '../../core/services/event.service';
+import { EventService } from '../../core/services/events/event.service';
 import { Router, NavigationEnd } from '@angular/router';
-
+import { LoggerService } from '../../core/services/log4ts/logger.service';
+import { Util } from '../../core/utils/util';
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
@@ -22,7 +23,10 @@ export class SidebarComponent implements OnInit, AfterViewInit, OnChanges {
   parentMenu: Array<any>;
   menu: any;
   @ViewChild('sideMenu') sideMenu: ElementRef;
-  constructor(private eventService: EventService, private router: Router) {
+  constructor(private eventService: EventService,
+              private router: Router,
+              private logger: LoggerService,
+              private util: Util) {
     router.events.forEach((event) => {
       if (event instanceof NavigationEnd) {
         this._activateMenuDropdown();
@@ -32,13 +36,8 @@ export class SidebarComponent implements OnInit, AfterViewInit, OnChanges {
 
   ngOnInit() {
     this.lightSidebar();
-    this.parentMenu = this.menuItems.filter((item: any) => {
-      if (item.parentId === this.menuParentId) {
-          console.log(item.parentId);
-          return item;
-      }
-    });
-    console.log(this.parentMenu);
+    this.parentMenu = this.util.unFlattenArray(this.menuItems);
+    this.logger.info('Side bar parentMenu', JSON.stringify(this.parentMenu));
   }
   ngAfterViewInit() {
     this.menu = new MetisMenu(this.sideMenu.nativeElement);

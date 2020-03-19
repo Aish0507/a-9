@@ -1,6 +1,6 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 
-import { EventService } from '../core/services/event.service';
+import { EventService } from '../core/services/events/event.service';
 
 import {
   LAYOUT_VERTICAL, LAYOUT_HORIZONTAL

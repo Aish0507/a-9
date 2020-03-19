@@ -1,33 +1,35 @@
 <!-- ========== Left Sidebar Start ========== -->
 <ng-template #contentTemplate>
   <!--- Sidemenu -->
-  {{ parentMenu | json }}
-  <div *ngFor="let menu of parentMenu"  id="sidebar-menu">
+  <!-- {{ parentMenu | json }} -->
+  <div id="sidebar-menu">
     <!-- Left Menu Start -->
     <ul class="metismenu list-unstyled" id="side-menu" #sideMenu>
       <li class="menu-title">Menu</li>
-      <li *ngIf="menu.routerLink && !menu.hasSubMenu">
-        <a [routerLink]="[menu.routerLink]"
-           routerLinkActive="active"
-           class="side-nav-link-ref">
-          <i class="bx {{menu.icon}}"></i>
-          <span class="badge badge-pill badge-info float-right">3</span>
-          <span>{{menu.title}}</span>
-        </a>
-      </li>
-      <li *ngIf="menu.hasSubMenu">
-        <a href="javascript: void(0);" class="has-arrow">
-          <i class="bx bx-task"></i>
-          <span>{{menu.title}}</span>
-        </a>
-        <ul class="sub-menu" aria-expanded="false">
-          <!-- <li><a routerLink="/tasks/list" routerLinkActive="active" class="side-nav-link-ref">Task List</a></li>
-          <li><a routerLink="/tasks/kanban" routerLinkActive="active" class="side-nav-link-ref">Kanban Board</a></li>
-          <li><a routerLink="/tasks/create" routerLinkActive="active" class="side-nav-link-ref">Create Task</a></li> -->
-          <app-sidebar [menuItems]="menuItems" [menuParentId]="menu.id"
-               [isCondensed]="isCondensed"></app-sidebar>
-        </ul>
-      </li>
+      <ng-container *ngFor="let menu of parentMenu">
+        <li *ngIf="menu.routerLink && !menu.hasSubMenu">
+          <a [routerLink]="[menu.routerLink]"
+             routerLinkActive="active"
+             class="side-nav-link-ref">
+            <i class="bx {{menu.icon}}"></i>
+            <span class="badge badge-pill badge-info float-right">3</span>
+            <span>{{menu.title}}</span>
+          </a>
+        </li>
+        <li *ngIf="menu?.hasSubMenu && menu?.childs.length">
+          <a href="javascript: void(0);" class="has-arrow">
+            <i class="bx bx-task"></i>
+            <span>{{menu.title}}</span>
+          </a>
+          <ul class="sub-menu" aria-expanded="false">
+            <li *ngFor="let child of menu?.childs">
+              <a routerLink="/tasks/list"
+                 routerLinkActive="active"
+                 class="side-nav-link-ref">
+                {{child?.title}}</a></li>
+          </ul>
+        </li>
+      </ng-container>
     </ul>
   </div>
 </ng-template>
