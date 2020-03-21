@@ -9,10 +9,10 @@ import { UIModule } from '../shared/ui/ui.module';
 
 import { PagesRoutingModule } from './pages-routing.module';
 
-import { DashboardComponent } from './dashboard/dashboard.component';
+
 
 @NgModule({
-  declarations: [DashboardComponent],
+  declarations: [],
   imports: [
     CommonModule,
     FormsModule,

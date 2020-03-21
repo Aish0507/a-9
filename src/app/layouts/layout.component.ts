@@ -3,7 +3,7 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { EventService } from '../core/services/events/event.service';
 
 import {
-  LAYOUT_VERTICAL, LAYOUT_HORIZONTAL
+  LAYOUT_VERTICAL
 } from './layouts.model';
 
 @Component({

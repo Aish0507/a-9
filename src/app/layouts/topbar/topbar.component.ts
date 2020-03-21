@@ -29,13 +29,6 @@ export class TopbarComponent implements OnInit {
   }
 
   /**
-   * Toggles the right sidebar
-   */
-  toggleRightSidebar() {
-    this.settingsButtonClicked.emit();
-  }
-
-  /**
    * Toggle the menu bar when having mobile screen
    */
   toggleMobileMenu(event: any) {
