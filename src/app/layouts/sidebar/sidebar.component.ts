@@ -2,10 +2,10 @@ import { Component, OnInit, AfterViewInit,
          ElementRef, ViewChild, Input,
          OnChanges } from '@angular/core';
 import MetisMenu from 'metismenujs/dist/metismenujs';
-import { EventService } from '../../core/services/events/event.service';
+import { EventService } from '@app/services/events/event.service';
 import { Router, NavigationEnd } from '@angular/router';
-import { LoggerService } from '../../core/services/log4ts/logger.service';
-import { Util } from '../../core/utils/util';
+import { LoggerService } from '@app/services/log4ts/logger.service';
+import { Util } from '@app/utils/util';
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',

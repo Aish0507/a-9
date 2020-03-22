@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Menu } from '../models/menu.model';
-import { verticalMenuItems } from '../../layouts/vertical/menu/menu';
+import { Menu } from '@models/menu.model';
+import { verticalMenuItems } from '@layouts/vertical/menu/menu';
 
 @Injectable({
     providedIn: 'root'

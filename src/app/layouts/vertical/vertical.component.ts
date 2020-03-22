@@ -1,6 +1,6 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { MenuService } from '../../core/services/menu.service';
+import { MenuService } from '@app/services/menu.service';
 
 @Component({
   selector: 'app-vertical',

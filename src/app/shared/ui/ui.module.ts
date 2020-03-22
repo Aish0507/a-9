@@ -6,10 +6,12 @@ import { NgbCollapseModule, NgbDatepickerModule, NgbTimepickerModule, NgbDropdow
 import { ClickOutsideModule } from 'ng-click-outside';
 
 import { PagetitleComponent } from './pagetitle/pagetitle.component';
+import { MaintenanceComponent } from './maintenance/maintenance.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   // tslint:disable-next-line: max-line-length
-  declarations: [PagetitleComponent],
+  declarations: [PagetitleComponent, MaintenanceComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -17,9 +19,10 @@ import { PagetitleComponent } from './pagetitle/pagetitle.component';
     NgbCollapseModule,
     NgbDatepickerModule,
     NgbTimepickerModule,
-    NgbDropdownModule
+    NgbDropdownModule,
+    RouterModule
   ],
   // tslint:disable-next-line: max-line-length
-  exports: [PagetitleComponent]
+  exports: [PagetitleComponent, MaintenanceComponent]
 })
 export class UIModule { }

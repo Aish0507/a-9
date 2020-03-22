@@ -3,14 +3,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
-import { environment } from '../environments/environment';
+import { environment } from '@env';
 
 
-import { LayoutsModule } from './layouts/layouts.module';
+import { LayoutsModule } from '@layouts/layouts.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoggerService } from './core/services/log4ts/logger.service';
-import { ConsoleLoggerService } from './core/services/log4ts/console-logger.service';
+import { LoggerService } from '@app/services/log4ts/logger.service';
+import { ConsoleLoggerService } from '@app/services/log4ts/console-logger.service';
 
 @NgModule({
   declarations: [

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { getCaNewBackend } from '../../authUtils';
 
-import { User } from '../models/auth.models';
+import { User } from '../interfaces/user.interface';
 
 @Injectable({ providedIn: 'root' })
 

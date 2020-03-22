@@ -7,7 +7,13 @@ import { LayoutComponent } from './layouts/layout.component';
 const routes: Routes = [
   { path: 'account', loadChildren: () => import('./account/account.module').then(m => m.AccountModule) },
   { path: '', component: LayoutComponent,
-  loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule), canActivate: [AuthGuard] }
+  loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule), canActivate: [AuthGuard] },
+  { path: '**', redirectTo: '404' },
+  {
+    path: '404',
+    loadChildren: () => import('./pages/page-not-found/page-not-found.module').then(m => m.PageNotFoundModule)
+  }
+
 ];
 
 @NgModule({

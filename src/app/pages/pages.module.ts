@@ -4,8 +4,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { NgbDropdownModule, NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 
-import { WidgetModule } from '../shared/widget/widget.module';
-import { UIModule } from '../shared/ui/ui.module';
+import { WidgetModule } from '@shared/widget/widget.module';
+import { UIModule } from '@shared/ui/ui.module';
 
 import { PagesRoutingModule } from './pages-routing.module';
 
