@@ -34,6 +34,7 @@
     "core-js": "^3.6.4",
     "metismenujs": "^1.1.0",
     "ng-click-outside": "^5.1.1",
+    "parse-error": "^0.2.0",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "web-animations-js": "^2.3.2",

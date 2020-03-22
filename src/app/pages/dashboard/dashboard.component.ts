@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
+import { DashboardModel } from '@models/dashboard.model';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -15,6 +16,7 @@ export class DashboardComponent implements OnInit {
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+  dummyData: any;
   constructor() { }
   ngOnInit() {
 
@@ -28,7 +30,9 @@ export class DashboardComponent implements OnInit {
   /**
    * Fetches the data
    */
-  private fetchData() {}
+  async fetchData() {
+    this.dummyData = await DashboardModel.getDummyData();
+  }
 
 }
 
