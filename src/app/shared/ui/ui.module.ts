@@ -8,10 +8,16 @@ import { ClickOutsideModule } from 'ng-click-outside';
 import { PagetitleComponent } from './pagetitle/pagetitle.component';
 import { MaintenanceComponent } from './maintenance/maintenance.component';
 import { RouterModule } from '@angular/router';
+import { TCSelectComponent } from './components/select';
+import { TCShapeDirective } from './directives/shape/shape.directive';
 
 @NgModule({
   // tslint:disable-next-line: max-line-length
-  declarations: [PagetitleComponent, MaintenanceComponent],
+  declarations: [
+    PagetitleComponent,
+    MaintenanceComponent,
+    TCSelectComponent,
+    TCShapeDirective],
   imports: [
     CommonModule,
     FormsModule,
@@ -23,6 +29,10 @@ import { RouterModule } from '@angular/router';
     RouterModule
   ],
   // tslint:disable-next-line: max-line-length
-  exports: [PagetitleComponent, MaintenanceComponent]
+  exports: [
+    PagetitleComponent,
+    MaintenanceComponent,
+    TCSelectComponent,
+    TCShapeDirective]
 })
 export class UIModule { }

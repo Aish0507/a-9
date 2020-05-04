@@ -11,7 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoggerService } from '@app/services/log4ts/logger.service';
 import { ConsoleLoggerService } from '@app/services/log4ts/console-logger.service';
-
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +21,7 @@ import { ConsoleLoggerService } from '@app/services/log4ts/console-logger.servic
     BrowserAnimationsModule,
     HttpClientModule,
     LayoutsModule,
-    AppRoutingModule,
+    AppRoutingModule
   ],
   providers: [ { provide: LoggerService, useClass: ConsoleLoggerService } ],
   bootstrap: [AppComponent]
